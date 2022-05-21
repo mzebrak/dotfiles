@@ -1,0 +1,51 @@
+[alias]
+	s = status
+	la = log --all --decorate --oneline --graph
+	l = log --decorate --oneline --graph
+	ds = diff --staged
+	dss = diff --stat --staged
+	a = add
+	c = checkout
+	b = branch
+	dw = diff --word-diff
+	dsw = diff --staged --word-diff
+	d = diff
+	ra = rebase --abort
+	rc = rebase --continue
+	rs = rebase --show-current-patch
+	ri = rebase --interactive --autosquash --autostash
+	cv = commit --verbose
+	ca = commit --amend --verbose
+	cf = commit --fixup
+	pf = push --force-with-lease --force-if-includes
+	ap = add -p
+	cp = cherry-pick
+	cpa = cherry-pick --abort
+	cpc = cherry-pick --continue
+	ma = merge --abort
+	mc = merge --continue
+	lp = log -p
+[user]
+	email = mzebrak@syncad.com
+	name = Mateusz Żebrak
+[credential]
+	helper = --help
+[core]
+	editor = vim
+    	pager = delta
+[interactive]
+    	diffFilter = delta --color-only
+[delta]
+	navigate = true
+    light = false
+	line-numbers = true
+	line-numbers-minus-style = red
+	file-style = bold gold
+	file-decoration-style = ul gold
+	commit-decoration-style = pink box
+	map-styles = bold purple => syntax firebrick, bold cyan => syntax seagreen
+#	hunk-header-file-style = bold gold
+[merge]
+    	conflictstyle = diff3
+[diff]
+    	colorMoved = default
