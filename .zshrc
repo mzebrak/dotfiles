@@ -122,6 +122,7 @@ alias lag="exa --icons -FglaG"
 alias tree='exa --icons -FT'
 alias e="xdg-open ."
 alias c="clear"
+alias cat="batcat"
 
 # Reduce the amount and intensity of colors shipped with `exa`. Dates, users,
 # groups and file sizes are colored neutrally. Users and groups use a more
