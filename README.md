@@ -76,3 +76,10 @@ exa --version
 ```bash
 curl -sS https://webinstall.dev/zoxide | bash
 ```
+
+# fuzzy search
+
+```bash
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && \
+~/.fzf/install
+```
