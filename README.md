@@ -23,7 +23,9 @@ sudo apt install -y \
   httpie \
   tldr \
   rsync \
-  dconf-editor 
+  dconf-editor \
+  fzf \
+  bat 
 ```
 
 # Font used for PyCharm & Terminator terminals:
