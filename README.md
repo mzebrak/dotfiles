@@ -70,3 +70,9 @@ curl -Lo exa.zip "https://github.com/ogham/exa/releases/latest/download/exa-linu
 sudo unzip -q exa.zip bin/exa -d /usr/local && \
 exa --version
 ```
+
+# zoxide installation
+
+```bash
+curl -sS https://webinstall.dev/zoxide | bash
+```
