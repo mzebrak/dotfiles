@@ -1,5 +1,6 @@
 [alias]
 	s = status
+	su = submodule update --init --recursive
 	la = log --all --decorate --oneline --graph
 	l = log --decorate --oneline --graph
 	ds = diff --staged
