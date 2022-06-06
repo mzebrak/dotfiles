@@ -8,14 +8,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 plugins=(
-        z
         git
         dotenv
         httpie
         you-should-use
         F-Sy-H
         zsh-autosuggestions
-	    fzf-tab # fzf-tab should be the last plugin to bind "^I"
+        fzf-tab # fzf-tab should be the last plugin to bind "^I"
 )
 
 # >>>>>>>>>>>---------  Settings that must be applied before loading Oh-My-Zsh

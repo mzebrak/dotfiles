@@ -12,6 +12,5 @@ alias tree='exa --icons -FT'
 alias e="xdg-open ."
 alias c="clear"
 alias cat="bat"
-alias z="zoxide"
 alias zz="z -"
 alias fd="fdfind"
