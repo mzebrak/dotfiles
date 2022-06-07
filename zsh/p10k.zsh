@@ -182,7 +182,7 @@
   # OS identifier color.
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=255
   # Custom icon.
-  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='🏢'
+  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='🏠'
 
   ################################[ prompt_char: prompt symbol ]################################
   # Transparent background.
@@ -1614,7 +1614,13 @@
   #   - always:   Trim down prompt when accepting a command line.
   #   - same-dir: Trim down prompt when accepting a command line unless this is the first command
   #               typed after changing current working directory.
-  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
+  #if [[ $__INTELLIJ_COMMAND_HISTFILE__ ]]; then
+  #  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
+  #else
+  #  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
+  #fi
+  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
+
 
   # Instant prompt mode.
   #
