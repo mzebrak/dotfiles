@@ -20,7 +20,7 @@ plugins=(
 # >>>>>>>>>>>---------  Settings that must be applied before loading Oh-My-Zsh
 
 # Set the theme
-ZSH_THEME="powerlevel10k/powerlevel10k"
+source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # Fix slow paste
 DISABLE_MAGIC_FUNCTIONS="true"
