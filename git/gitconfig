@@ -26,6 +26,8 @@
 	ma = merge --abort
 	mc = merge --continue
 	lp = log -p
+	sl = stash list
+	sh = stash show
 [user]
 	email = mzebrak@syncad.com
 	name = Mateusz Żebrak
