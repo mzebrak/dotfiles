@@ -6,7 +6,7 @@
     background_darkness = 0.9
     background_type = transparent
     cursor_color = "#aaaaaa"
-    font = MesloLGS NF 10
+    font = MesloLGL Nerd Font Mono 10
     foreground_color = "#d3d7cf"
     scrollback_infinite = True
     use_system_font = False
