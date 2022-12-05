@@ -28,6 +28,8 @@
 	lp = log -p
 	sl = stash list
 	sh = stash show
+	fp = fetch --prune
+	f = fetch
 [user]
 	email = mzebrak@syncad.com
 	name = Mateusz Żebrak
