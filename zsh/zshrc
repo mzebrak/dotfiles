@@ -14,6 +14,7 @@ plugins=(
         you-should-use
         F-Sy-H
         zsh-autosuggestions
+        zsh-docker-aliases
         fzf-tab # fzf-tab should be the last plugin to bind "^I"
 )
 
