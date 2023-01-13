@@ -33,6 +33,7 @@
 [user]
 	email = mzebrak@syncad.com
 	name = Mateusz Żebrak
+	signingkey = TOUPDATE
 [credential]
 	helper = --help
 [core]
@@ -55,3 +56,7 @@
     	conflictstyle = diff3
 [diff]
     	colorMoved = default
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
