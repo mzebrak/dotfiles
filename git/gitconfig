@@ -26,8 +26,10 @@
 	ma = merge --abort
 	mc = merge --continue
 	lp = log -p
-	sl = stash list
-	sh = stash show
+	st = stash
+	stl = stash list
+	sts = stash show
+	stsh = stash show -p
 	fp = fetch --prune
 	f = fetch
 [user]
