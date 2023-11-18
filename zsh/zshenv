@@ -10,4 +10,3 @@ export FZF_CTRL_R_OPTS="--layout=reverse --preview-window hidden"
 
 export GPG_TTY=$(tty)
 source ~/dotfiles/virtualenv-autodetect.sh
-

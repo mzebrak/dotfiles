@@ -1,5 +1,5 @@
 # virtualenv-autodetect.sh
-# 
+#
 # Installation:
 # Add this line to your .zshenv, .bashrc or .bash-profile:
 #
