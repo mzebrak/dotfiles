@@ -1,19 +1,18 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV DISPLAY=0.0
+ENV DISPLAY=0
+ENV TZ="Europe/Warsaw"
 
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
-      sudo \
-      build-essential \
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
       software-properties-common \
-      keyboard-configuration && \
-    apt-add-repository -y ppa:git-core/ppa && \
-    apt-get update && \
-    apt-get install --no-install-recommends -y \
-      git && \
-    rm -rf /var/lib/apt/lists/*
+      gpg-agent \
+      tzdata \
+      sudo \
+      git \
+      make \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN echo "Set disable_coredump false" >> /etc/sudo.conf
 
