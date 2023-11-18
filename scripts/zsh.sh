@@ -7,7 +7,7 @@ source "$(pwd)/scripts/util.sh"
 
 do_configure() {
   info "[zsh][configure] Setting as default shell"
-  sudo usermod -s "$(type -P zsh)" "$(whoami)"
+  sudo chsh -s $(which zsh)
 }
 
 main() {
