@@ -30,7 +30,6 @@ do_install() {
 		rsync
 		shellcheck
 		terminator
-		tig
     tldr
     tmux
     unrar

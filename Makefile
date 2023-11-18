@@ -35,7 +35,7 @@ nautilus-terminal-install: ## install nautilus-terminal
 nautilus-terminal-configure: ## Configure nautilus-terminal
 	@./scripts/nautilus-terminal.sh configure
 
-tools: exa bat tig fd
+tools: exa bat fd
 exa: ## Install exa
 	@./scripts/exa.sh install
 bat: bat-install bat-configure ## Install and configure bat
@@ -43,7 +43,3 @@ bat-install: ## Install bat
 	@./scripts/bat.sh install
 bat-configure: ## Configure bat
 	@./scripts/bat.sh configure
-tig: ## Configure tig
-	@./scripts/tig.sh configure
-tig: ## Configure fd
-	@./scripts/fd.sh configure
