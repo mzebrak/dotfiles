@@ -18,6 +18,7 @@ do_install() {
 		fd-find
 		fontconfig
 		git
+		git-revise
 		gnome-tweaks
 		htop
 		httpie
