@@ -36,6 +36,14 @@ do_install() {
     unzip
     wget
     zsh
+    zlib1g-dev
+    libffi-dev
+    libssl-dev
+    libbz2-dev
+    libreadline-dev
+    libsqlite3-dev
+    liblzma-dev
+    tk-dev
 	)
 
 	info "[system] Installing packages started..."
