@@ -32,6 +32,7 @@ do_configure() {
   )
   for path in "${!plugins[@]}"; do
     if [[ ! -d "${ZSH_CUSTOM}/$path" ]]; then
+      info "[ohmyzsh][configure] Cloning ${plugins[$path]} into ${ZSH_CUSTOM}/$path ..."
       git clone -q "${plugins[$path]}" "${ZSH_CUSTOM}/$path"
       success "[ohmyzsh][configure] ${plugins[$path]} successfully downloaded"
     else
