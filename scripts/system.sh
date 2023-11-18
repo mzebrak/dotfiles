@@ -10,6 +10,7 @@ FONTS_DIR="$HOME/.local/share/fonts"
 
 do_install() {
 	local packages=(
+		ack
 		bat
 		build-essential
 		cmake
