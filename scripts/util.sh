@@ -10,7 +10,7 @@ info() {
 }
 
 success() {
-  printf "\033[32m%s\033[0m\n" "$*" >&2
+	printf "\033[32m%s\033[0m\n" "$*" >&2
 }
 
 warn() {

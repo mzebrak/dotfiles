@@ -13,7 +13,7 @@ do_install() {
 
 	info "[zoxide] Installation stared..."
 	curl -sS https://webinstall.dev/zoxide | bash
-  success "[zoxide] Installation done"
+	success "[zoxide] Installation done"
 }
 
 main() {

@@ -24,7 +24,7 @@ do_install() {
 		git clone --quiet --depth 1 https://github.com/junegunn/fzf.git "${FZF_DIR}"
 		"${FZF_DIR}/install" --no-bash --no-fish --key-bindings --completion --no-update-rc
 	fi
-  success "[fzf] Installing done"
+	success "[fzf] Installing done"
 }
 
 main() {

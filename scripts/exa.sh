@@ -17,7 +17,7 @@ do_install() {
 	local exa=/tmp/exa.zip
 	download "https://github.com/ogham/exa/releases/latest/download/exa-linux-x86_64-v${EXA_VERSION}.zip" "${exa}"
 	sudo unzip -q "${exa}" bin/exa -d /usr/local
-  success "[exa] Installation done"
+	success "[exa] Installation done"
 }
 
 main() {

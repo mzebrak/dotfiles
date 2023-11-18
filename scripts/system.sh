@@ -30,20 +30,20 @@ do_install() {
 		rsync
 		shellcheck
 		terminator
-    tldr
-    tmux
-    unrar
-    unzip
-    wget
-    zsh
-    zlib1g-dev
-    libffi-dev
-    libssl-dev
-    libbz2-dev
-    libreadline-dev
-    libsqlite3-dev
-    liblzma-dev
-    tk-dev
+		tldr
+		tmux
+		unrar
+		unzip
+		wget
+		zsh
+		zlib1g-dev
+		libffi-dev
+		libssl-dev
+		libbz2-dev
+		libreadline-dev
+		libsqlite3-dev
+		liblzma-dev
+		tk-dev
 	)
 
 	info "[system] Installing packages started..."
@@ -65,7 +65,7 @@ do_configure() {
 
 	info "[system][configure][directories] User binaries directory"
 	install -d -m 0755 -o "${USER}" -g "${USER}" "$HOME/bin"
-  success "[system][configure] Creating directories done"
+	success "[system][configure] Creating directories done"
 
 	# Font: MesloLGL Nerd Font Mono
 	# https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/L/Regular/complete
@@ -79,7 +79,7 @@ do_configure() {
 		find . -type f -name '*.ttf' ! -name '*Windows*' -exec cp "{}" "${FONTS_DIR}" \;
 	)
 	sudo fc-cache -f
-  success "[system][configure] Installing patched fonts done"
+	success "[system][configure] Installing patched fonts done"
 }
 
 main() {
