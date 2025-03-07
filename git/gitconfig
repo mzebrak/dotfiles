@@ -1,8 +1,10 @@
 [alias]
 	s = status
 	su = submodule update --init --recursive
-	la = log --all --decorate --oneline --graph
 	l = log --decorate --oneline --graph
+	ld = log --decorate --graph --oneline  --pretty=format:'%C(yellow)%h %C(cyan)%ad %Cblue%aN%C(auto)%d %Creset%s' --date relative
+	lda = log --all --decorate --graph --oneline  --pretty=format:'%C(yellow)%h %C(cyan)%ad %Cblue%aN%C(auto)%d %Creset%s' --date relative
+	la = log --all --decorate --oneline --graph
 	ds = diff --staged
 	dss = diff --stat --staged
 	a = add
@@ -32,6 +34,7 @@
 	stsh = stash show -p
 	fp = fetch --prune
 	f = fetch
+	whatadded = log --diff-filter=A
 [user]
 	email = mzebrak@syncad.com
 	name = Mateusz Żebrak
