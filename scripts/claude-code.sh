@@ -23,6 +23,26 @@ do_configure() {
 	success "[claude-code] Configuration done"
 }
 
+do_statusline() {
+	info "[claude-code] Statusline setup started..."
+
+	# Check if npm is available
+	if ! command -v npm &>/dev/null; then
+		error "[claude-code] npm not found, install nvm/node first"
+		return 1
+	fi
+
+	# Install ccstatusline globally
+	info "[claude-code] Installing ccstatusline..."
+	npm install -g ccstatusline@latest
+
+	# Link ccstatusline config
+	mkdir -p "${HOME}/.config/ccstatusline"
+	ln -fs "$(pwd)/claude-code/ccstatusline.json" "${HOME}/.config/ccstatusline/settings.json"
+
+	success "[claude-code] Statusline setup done"
+}
+
 main() {
 	command=$1
 	case $command in
@@ -33,6 +53,10 @@ main() {
 	"configure")
 		shift
 		do_configure "$@"
+		;;
+	"statusline")
+		shift
+		do_statusline "$@"
 		;;
 	*)
 		error "$(basename "$0"): '$command' is not a valid command"

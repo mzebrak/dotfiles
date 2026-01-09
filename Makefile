@@ -35,7 +35,7 @@ nautilus-terminal-install: ## install nautilus-terminal
 nautilus-terminal-configure: ## Configure nautilus-terminal
 	@./scripts/nautilus-terminal.sh configure
 
-tools: exa bat fd zoxide uv claude-code
+tools: exa bat fd zoxide uv nvm claude-code
 exa: ## Install exa
 	@./scripts/exa.sh install
 bat: bat-install bat-configure ## Install and configure bat
@@ -47,8 +47,15 @@ zoxide: ## Install zoxide
 	@./scripts/zoxide.sh install
 uv: ## Install uv
 	@./scripts/uv.sh install
+nvm: nvm-install nvm-configure ## Install nvm and Node.js LTS
+nvm-install: ## Install nvm
+	@./scripts/nvm.sh install
+nvm-configure: ## Install Node.js LTS
+	@./scripts/nvm.sh configure
 claude-code: claude-code-install claude-code-configure ## Install and configure Claude Code
 claude-code-install: ## Install Claude Code
 	@./scripts/claude-code.sh install
 claude-code-configure: ## Configure Claude Code
 	@./scripts/claude-code.sh configure
+claude-code-statusline: nvm ## Install ccstatusline addon (requires nvm)
+	@./scripts/claude-code.sh statusline
