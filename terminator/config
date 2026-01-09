@@ -1,6 +1,9 @@
 [global_config]
   suppress_multiple_term_dialog = True
+  case_sensitive = False
 [keybindings]
+  zoom_normal = ""
+  help = ""
 [profiles]
   [[default]]
     background_darkness = 0.9
@@ -16,17 +19,31 @@
       type = Window
       parent = ""
       order = 0
-      position = 179:370
+      position = 2059:379
       maximised = False
       fullscreen = False
-      size = 1077, 518
+      size = 1449, 908
       title = /bin/bash
-      last_active_term = 791f9e1e-5832-45bd-9037-78b39cabb9bd
+      last_active_term = cb00ab30-84d0-443f-894f-c868aee76082
       last_active_window = True
-    [[[terminal1]]]
-      type = Terminal
+    [[[child1]]]
+      type = HPaned
       parent = child0
+      order = 0
+      position = 722
+      ratio = 0.5
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
       order = 0
       profile = default
       uuid = 791f9e1e-5832-45bd-9037-78b39cabb9bd
+      command = "ssh docker"
+      directory = "~/1workspace/clive"
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      uuid = cb00ab30-84d0-443f-894f-c868aee76082
 [plugins]
