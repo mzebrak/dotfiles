@@ -21,8 +21,9 @@ do_install() {
 do_configure() {
 	info "[nvm] Configuration started..."
 
-	# Source nvm
+	# Source nvm (disable -u as nvm has unbound variables)
 	export NVM_DIR="${HOME}/.nvm"
+	set +u
 	# shellcheck source=/dev/null
 	[[ -s "${NVM_DIR}/nvm.sh" ]] && source "${NVM_DIR}/nvm.sh"
 
@@ -36,6 +37,7 @@ do_configure() {
 	else
 		error "[nvm] nvm not found, run install first"
 	fi
+	set -u
 
 	success "[nvm] Configuration done"
 }
