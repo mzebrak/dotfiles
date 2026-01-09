@@ -1,7 +1,7 @@
 include tests/Makefile
 
 .DEFAULT_GOAL := all
-.PHONY: git
+.PHONY: git claude-code
 
 # Main targets
 all: system git terminal tools  ## Install everything (desktop)
