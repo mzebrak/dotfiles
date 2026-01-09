@@ -35,7 +35,7 @@ nautilus-terminal-install: ## install nautilus-terminal
 nautilus-terminal-configure: ## Configure nautilus-terminal
 	@./scripts/nautilus-terminal.sh configure
 
-tools: exa bat fd zoxide pyenv
+tools: exa bat fd zoxide
 exa: ## Install exa
 	@./scripts/exa.sh install
 bat: bat-install bat-configure ## Install and configure bat
@@ -45,5 +45,3 @@ bat-configure: ## Configure bat
 	@./scripts/bat.sh configure
 zoxide: ## Install zoxide
 	@./scripts/zoxide.sh install
-pyenv: ## Install pyenv
-	@./scripts/pyenv.sh install
