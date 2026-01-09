@@ -5,18 +5,31 @@ set -euo pipefail
 # shellcheck source=../scripts/util.sh
 source "$(pwd)/scripts/util.sh"
 
-do_configure() {
-	info "[fd][configure] Creating config file symlink started..."
+do_install() {
+	if fdfind --version &>/dev/null; then
+		info "[fd] Already $(fdfind --version | head -1) installed"
+		return
+	fi
 
+	info "[fd] Installation started..."
+	sudo apt-get install -qq -y fd-find
+	success "[fd] Installation done"
+}
+
+do_configure() {
+	info "[fd] Configuration started..."
 	mkdir -p "${HOME}/.config/fd/"
 	ln -fs "$(pwd)/fd/ignore" "${HOME}/.config/fd/ignore"
-
-	success "[fd][configure] Creating config file symlink done"
+	success "[fd] Configuration done"
 }
 
 main() {
 	command=$1
 	case $command in
+	"install")
+		shift
+		do_install "$@"
+		;;
 	"configure")
 		shift
 		do_configure "$@"

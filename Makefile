@@ -23,13 +23,19 @@ system-configure-core: ## Configure system (directories)
 	@./scripts/system.sh configure-core
 
 # Git
-git: ## Configure git
+git: git-install git-configure ## Install and configure git
+git-install: ## Install git
+	@./scripts/git.sh install
+git-configure: ## Configure git
 	@./scripts/git.sh configure
 
 # Terminal
 terminal: terminal-core terminator ## Setup terminal
 terminal-core: zsh ohmyzsh fzf tmux ## Setup terminal (core)
-zsh: ## Configure zsh
+zsh: zsh-install zsh-configure ## Install and configure zsh
+zsh-install: ## Install zsh
+	@./scripts/zsh.sh install
+zsh-configure: ## Configure zsh
 	@./scripts/zsh.sh configure
 ohmyzsh: ohmyzsh-install ohmyzsh-configure ## Install and configure Oh My Zsh
 ohmyzsh-install: ## Install Oh My Zsh
@@ -38,10 +44,16 @@ ohmyzsh-configure: ## Configure Oh My Zsh
 	@./scripts/ohmyzsh.sh configure
 fzf: ## Install FZF
 	@./scripts/fzf.sh install
-terminator: ## Configure Terminator
-	@./scripts/terminator.sh configure
-tmux: ## Configure tmux
+tmux: tmux-install tmux-configure ## Install and configure tmux
+tmux-install: ## Install tmux
+	@./scripts/tmux.sh install
+tmux-configure: ## Configure tmux
 	@./scripts/tmux.sh configure
+terminator: terminator-install terminator-configure ## Install and configure Terminator
+terminator-install: ## Install Terminator
+	@./scripts/terminator.sh install
+terminator-configure: ## Configure Terminator
+	@./scripts/terminator.sh configure
 
 # Tools
 tools: exa bat fd delta zoxide uv nvm claude-code
@@ -52,7 +64,10 @@ bat-install: ## Install bat
 	@./scripts/bat.sh install
 bat-configure: ## Configure bat
 	@./scripts/bat.sh configure
-fd: ## Configure fd
+fd: fd-install fd-configure ## Install and configure fd
+fd-install: ## Install fd
+	@./scripts/fd.sh install
+fd-configure: ## Configure fd
 	@./scripts/fd.sh configure
 delta: ## Install delta (git diff viewer)
 	@./scripts/delta.sh install

@@ -10,13 +10,10 @@ FONTS_DIR="$HOME/.local/share/fonts"
 
 CORE_PACKAGES=(
 	ack
-	bat
 	build-essential
 	cmake
 	curl
-	fd-find
 	fontconfig
-	git
 	git-revise
 	htop
 	httpie
@@ -29,17 +26,14 @@ CORE_PACKAGES=(
 	rsync
 	shellcheck
 	tldr
-	tmux
 	unrar
 	unzip
 	wget
-	zsh
 )
 
 DESKTOP_PACKAGES=(
 	dconf-editor
 	gnome-tweaks
-	terminator
 )
 
 do_install() {
@@ -50,7 +44,6 @@ do_install() {
 do_install_core() {
 	info "[system] Installing core packages started..."
 	export DEBIAN_FRONTEND=noninteractive
-	sudo apt-add-repository -y ppa:git-core/ppa
 	sudo apt-add-repository -y ppa:neovim-ppa/stable
 	sudo apt-get update -qq
 	sudo apt-get install -qq -y "${CORE_PACKAGES[@]}"

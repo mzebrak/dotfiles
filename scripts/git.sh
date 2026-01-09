@@ -5,28 +5,33 @@ set -euo pipefail
 # shellcheck source=../scripts/util.sh
 source "$(pwd)/scripts/util.sh"
 
-DELTA_VERSION="${DELTA_VERSION:=0.16.5}"
+do_install() {
+	if git --version &>/dev/null; then
+		info "[git] Already $(git --version) installed"
+		return
+	fi
+
+	info "[git] Installation started..."
+	sudo apt-add-repository -y ppa:git-core/ppa
+	sudo apt-get update -qq
+	sudo apt-get install -qq -y git
+	success "[git] Installation done"
+}
 
 do_configure() {
-	info "[git][configure] Creating config file symlink started..."
+	info "[git] Configuration started..."
 	ln -fs "$(pwd)/git/gitconfig" "${HOME}/.gitconfig"
-	success "[git][configure] Creating config file symlink done"
-
-	info "[git][configure] Creating a commit-template file started..."
 	touch "$(pwd)/git/commit-template"
-	success "[git][configure] Creating a commit-template file done"
-
-	info "[git][configure][delta] Delta installation started..."
-	local delta=/tmp/delta.deb
-	download "https://github.com/dandavison/delta/releases/download/${DELTA_VERSION}/git-delta_${DELTA_VERSION}_amd64.deb" "${delta}"
-	sudo dpkg -i "${delta}"
-	success "[git][configre][delta] Installation done"
-
+	success "[git] Configuration done"
 }
 
 main() {
 	command=$1
 	case $command in
+	"install")
+		shift
+		do_install "$@"
+		;;
 	"configure")
 		shift
 		do_configure "$@"
