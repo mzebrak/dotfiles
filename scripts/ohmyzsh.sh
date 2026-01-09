@@ -9,7 +9,7 @@ ZSH="${HOME}/.oh-my-zsh"
 ZSH_CUSTOM="${ZSH}/custom"
 
 do_install() {
-	if [[ -d "${ZSH}" ]]; then
+	if [[ -d ${ZSH} ]]; then
 		info "[ohmyzsh] Already installed"
 		return
 	fi

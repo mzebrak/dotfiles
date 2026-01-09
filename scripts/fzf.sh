@@ -20,7 +20,7 @@ do_install() {
 	fi
 
 	info "[fzf] Installing started..."
-	if [[ ! -d "${FZF_DIR}" ]]; then
+	if [[ ! -d ${FZF_DIR} ]]; then
 		git clone --quiet --depth 1 https://github.com/junegunn/fzf.git "${FZF_DIR}"
 		"${FZF_DIR}/install" --no-bash --no-fish --key-bindings --completion --no-update-rc
 	fi

@@ -41,7 +41,7 @@ _get_virtualenv_path() {
 			echo "$_current_dir/$_virtualenv_subdir"
 			return
 		else
-			if [[ "$_current_dir" != "/" ]]; then
+			if [[ $_current_dir != "/" ]]; then
 				_current_dir=$(dirname "$_current_dir")
 			else
 				return
