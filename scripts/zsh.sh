@@ -18,7 +18,7 @@ do_install() {
 
 do_configure() {
 	info "[zsh] Configuration started..."
-	sudo chsh -s "$(which zsh)"
+	sudo chsh -s "$(which zsh)" "$USER"
 	success "[zsh] Configuration done"
 }
 
