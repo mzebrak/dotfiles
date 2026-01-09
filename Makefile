@@ -91,3 +91,7 @@ nautilus-terminal-configure: ## Configure nautilus-terminal
 	@./scripts/nautilus-terminal.sh configure
 claude-code-statusline: nvm ## Addon: ccstatusline (requires nvm)
 	@./scripts/claude-code.sh statusline
+
+# Docker
+build-base-image: ## Build Docker base image with dotfiles
+	@./build.sh
