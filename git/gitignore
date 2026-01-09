@@ -2,4 +2,6 @@
 *.egg-info/
 .idea/
 venv*/
+build
 .python-version
+.build_instance.sh
