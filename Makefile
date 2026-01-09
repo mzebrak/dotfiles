@@ -1,4 +1,4 @@
-include tests/test.mk
+include tests/Makefile
 
 .DEFAULT_GOAL := all
 .PHONY: git
