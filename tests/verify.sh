@@ -62,7 +62,6 @@ do_verify_core() {
 	check_file "gitconfig" "${HOME}/.gitconfig"
 	check_file "zshrc" "${HOME}/.zshrc"
 	check_file "bat config" "${HOME}/.config/bat/config"
-	check_file "claude-code config" "${HOME}/.claude.json"
 	echo
 
 	# Oh-My-Zsh

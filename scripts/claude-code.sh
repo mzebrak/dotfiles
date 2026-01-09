@@ -16,12 +16,6 @@ do_install() {
 	success "[claude-code] Installation done"
 }
 
-do_configure() {
-	info "[claude-code] Configuration started..."
-	ln -fs "$(pwd)/claude-code/settings.json" "${HOME}/.claude.json"
-	success "[claude-code] Configuration done"
-}
-
 do_statusline() {
 	info "[claude-code] Statusline setup started..."
 
@@ -40,6 +34,7 @@ do_statusline() {
 	ln -fs "$(pwd)/claude-code/ccstatusline.json" "${HOME}/.config/ccstatusline/settings.json"
 
 	success "[claude-code] Statusline setup done"
+	info "[claude-code] Run 'ccstatusline' and use TUI to complete installation"
 }
 
 main() {
@@ -48,10 +43,6 @@ main() {
 	"install")
 		shift
 		do_install "$@"
-		;;
-	"configure")
-		shift
-		do_configure "$@"
 		;;
 	"statusline")
 		shift

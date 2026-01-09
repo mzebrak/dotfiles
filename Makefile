@@ -80,11 +80,8 @@ nvm-install: ## Install nvm
 	@./scripts/nvm.sh install
 nvm-configure: ## Install Node.js LTS
 	@./scripts/nvm.sh configure
-claude-code: claude-code-install claude-code-configure ## Install and configure Claude Code
-claude-code-install: ## Install Claude Code
+claude-code: ## Install Claude Code
 	@./scripts/claude-code.sh install
-claude-code-configure: ## Configure Claude Code
-	@./scripts/claude-code.sh configure
 
 # Addons (optional, run manually)
 nautilus-terminal: nautilus-terminal-install nautilus-terminal-configure ## Addon: nautilus-terminal
