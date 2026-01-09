@@ -44,8 +44,9 @@ do_install() {
 do_install_core() {
 	info "[system] Installing core packages started..."
 	export DEBIAN_FRONTEND=noninteractive
-	sudo apt-add-repository -y ppa:neovim-ppa/stable
 	sudo apt-get update -qq
+	sudo apt-get install -qq -y software-properties-common
+	sudo apt-add-repository -y ppa:neovim-ppa/stable
 	sudo apt-get install -qq -y "${CORE_PACKAGES[@]}"
 	success "[system] Install core packages done"
 }
