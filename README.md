@@ -125,26 +125,6 @@ Plugins are configured in [`scripts/ohmyzsh.sh`](scripts/ohmyzsh.sh) and install
 More plugins: [ohmyzsh/plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/plugins)
 
 ### Open terminal in Nautilus
-Add keyboard shortcut to open terminal from Nautilus:
+Automatically configured by `make terminator`. Press F12 in Nautilus to open Terminator, or right-click → Open In Terminal.
 
-1. Create script `~/.local/share/nautilus/scripts/Terminal`:
-```bash
-#!/bin/sh
-terminator
-```
-
-2. Make executable and restart Nautilus:
-```bash
-chmod +x ~/.local/share/nautilus/scripts/Terminal
-nautilus -q
-```
-
-3. Create `~/.config/nautilus/scripts-accels`:
-```
-F12 Terminal
-```
-
-Now press F12 in Nautilus to open Terminator, or right-click → Scripts → Terminal.
-
-> **Note:** Tested on Ubuntu 18.04, 21.10+. Does not work on Ubuntu 20.10 (Nautilus 3.38).
-> Source: [askubuntu.com](https://askubuntu.com/a/1079882)
+> **Note:** Does not work on Ubuntu 20.10 (Nautilus 3.38). Source: [askubuntu.com](https://askubuntu.com/a/1079882)
