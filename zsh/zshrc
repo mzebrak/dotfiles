@@ -55,9 +55,6 @@ eval "$(zoxide init zsh)"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
