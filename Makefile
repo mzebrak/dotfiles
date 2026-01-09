@@ -28,7 +28,7 @@ git: ## Configure git
 
 # Terminal
 terminal: terminal-core terminator ## Setup terminal
-terminal-core: zsh ohmyzsh fzf ## Setup terminal (core)
+terminal-core: zsh ohmyzsh fzf tmux ## Setup terminal (core)
 zsh: ## Configure zsh
 	@./scripts/zsh.sh configure
 ohmyzsh: ohmyzsh-install ohmyzsh-configure ## Install and configure Oh My Zsh
@@ -40,6 +40,8 @@ fzf: ## Install FZF
 	@./scripts/fzf.sh install
 terminator: ## Configure Terminator
 	@./scripts/terminator.sh configure
+tmux: ## Configure tmux
+	@./scripts/tmux.sh configure
 
 # Tools
 tools: exa bat fd delta zoxide uv nvm claude-code
