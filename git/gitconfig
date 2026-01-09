@@ -44,13 +44,13 @@
 	helper = --help
 [core]
 	editor = vim
-    	pager = delta
+	pager = delta
 	excludesfile = ~/dotfiles/git/gitignore
 [interactive]
-    	diffFilter = delta --color-only
+	diffFilter = delta --color-only
 [delta]
 	navigate = true
-    light = false
+	light = false
 	line-numbers = true
 	line-numbers-minus-style = red
 	file-style = bold gold
@@ -59,9 +59,9 @@
 	map-styles = bold purple => syntax firebrick, bold cyan => syntax seagreen
 #	hunk-header-file-style = bold gold
 [merge]
-    	conflictstyle = diff3
+	conflictstyle = diff3
 [diff]
-    	colorMoved = default
+	colorMoved = default
 [commit]
 	gpgsign = true
 [gpg]
