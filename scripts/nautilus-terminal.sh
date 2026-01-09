@@ -20,8 +20,8 @@ do_install() {
 do_configure() {
 	info "[nautilus-terminal][configure] Configuring dconf settings of nautilus-terminal started..."
 
-	info "[nautilus-terminal][configure] Applying MesloLGS NF Regular font ..."
-	dconf write /org/flozz/nautilus-terminal/custom-font "'MesloLGS NF Regular'"
+	info "[nautilus-terminal][configure] Applying MesloLGL Nerd Font Mono font ..."
+	dconf write /org/flozz/nautilus-terminal/custom-font "'MesloLGL Nerd Font Mono'"
 
 	info "[nautilus-terminal][configure] Applying terminal bottom..."
 	dconf write /org/flozz/nautilus-terminal/terminal-bottom true

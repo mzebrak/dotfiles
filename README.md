@@ -111,7 +111,7 @@ Optional, run manually.
 ## Customization
 
 ### Font
-Terminal & PyCharm font: **MesloLGS NF Regular** (installed by `make system-configure`)
+Terminal & PyCharm font: **MesloLGL Nerd Font Mono** (installed by `make system-configure`)
 
 ### Powerlevel10k
 OS icon can be changed in `zsh/p10k.zsh`:
