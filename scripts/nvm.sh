@@ -8,7 +8,7 @@ source "$(pwd)/scripts/util.sh"
 NVM_DIR="${HOME}/.nvm"
 
 do_install() {
-	if [[ -d "${NVM_DIR}" ]]; then
+	if [[ -d ${NVM_DIR} ]]; then
 		info "[nvm] Already installed"
 		return
 	fi

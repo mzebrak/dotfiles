@@ -1,11 +1,15 @@
 {
-  "version": 3,
+  "colorLevel": 3,
+  "compactThreshold": 60,
+  "flexMode": "full-minus-40",
+  "globalBold": false,
+  "inheritSeparatorColors": false,
   "lines": [
     [
       {
+        "color": "cyan",
         "id": "1",
-        "type": "model",
-        "color": "cyan"
+        "type": "model"
       },
       {
         "id": "2",
@@ -16,14 +20,14 @@
         "type": "git-branch"
       },
       {
+        "color": "brightBlack",
         "id": "3",
-        "type": "git-changes",
-        "color": "brightBlack"
+        "type": "git-changes"
       },
       {
+        "color": "magenta",
         "id": "5",
-        "type": "separator",
-        "color": "magenta"
+        "type": "separator"
       },
       {
         "id": "6",
@@ -83,21 +87,17 @@
       }
     ]
   ],
-  "flexMode": "full-minus-40",
-  "compactThreshold": 60,
-  "colorLevel": 3,
-  "inheritSeparatorColors": false,
-  "globalBold": false,
   "powerline": {
+    "autoAlign": false,
     "enabled": false,
-    "separators": [
-      ""
-    ],
+    "endCaps": [],
     "separatorInvertBackground": [
       false
     ],
-    "startCaps": [],
-    "endCaps": [],
-    "autoAlign": false
-  }
+    "separators": [
+      ""
+    ],
+    "startCaps": []
+  },
+  "version": 3
 }
