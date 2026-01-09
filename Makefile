@@ -1,4 +1,4 @@
-include test.mk
+include tests/test.mk
 
 .DEFAULT_GOAL := all
 .PHONY: git
