@@ -9,4 +9,3 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --bind 'ctrl-n:preview-down,ctrl-p:
 export FZF_CTRL_R_OPTS="--layout=reverse --preview-window hidden"
 
 export GPG_TTY=$(tty)
-source ~/dotfiles/virtualenv-autodetect.sh
