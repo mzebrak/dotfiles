@@ -23,7 +23,7 @@ check_file() {
 	local name="$1"
 	local file="$2"
 
-	if [[ -f "$file" ]] || [[ -L "$file" ]]; then
+	if [[ -f $file ]] || [[ -L $file ]]; then
 		success "[verify] $name: OK"
 	else
 		error "[verify] $name: FAILED (file not found: $file)"
@@ -31,8 +31,8 @@ check_file() {
 	fi
 }
 
-do_verify() {
-	info "[verify] Starting verification..."
+do_verify_core() {
+	info "[verify] Starting core verification..."
 	echo
 
 	# System tools
@@ -56,14 +56,13 @@ do_verify() {
 	check_command "claude" "claude --version"
 	echo
 
-	# Config files
+	# Config files (core)
 	info "[verify] Checking config files..."
 	check_file "gitconfig" "${HOME}/.gitconfig"
 	check_file "zshrc" "${HOME}/.zshrc"
 	check_file "zshenv" "${HOME}/.zshenv"
 	check_file "p10k.zsh" "${HOME}/.p10k.zsh"
 	check_file "bat config" "${HOME}/.config/bat/config"
-	check_file "terminator config" "${HOME}/.config/terminator/config"
 	check_file "claude-code config" "${HOME}/.claude/settings.json"
 	echo
 
@@ -71,6 +70,23 @@ do_verify() {
 	info "[verify] Checking Oh-My-Zsh..."
 	check_file "oh-my-zsh" "${HOME}/.oh-my-zsh/oh-my-zsh.sh"
 	check_file "powerlevel10k" "${HOME}/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme"
+	echo
+
+	# Summary
+	if [[ $FAILED -eq 0 ]]; then
+		success "[verify] All checks passed!"
+	else
+		error "[verify] $FAILED check(s) failed!"
+		exit 1
+	fi
+}
+
+do_verify() {
+	do_verify_core
+
+	# Desktop config files
+	info "[verify] Checking desktop config files..."
+	check_file "terminator config" "${HOME}/.config/terminator/config"
 	echo
 
 	# Summary
@@ -99,6 +115,9 @@ main() {
 	case $command in
 	"all")
 		do_verify
+		;;
+	"core")
+		do_verify_core
 		;;
 	"optional")
 		do_verify_optional

@@ -3,21 +3,32 @@ include tests/test.mk
 .DEFAULT_GOAL := all
 .PHONY: git
 
-all: system git terminal nautilus-terminal tools  ## Install and configure everything (default)
-testable: system git terminal nautilus-terminal-install tools  ## Install and configure everything that could be tested
+# Main targets
+all: system git terminal tools  ## Install everything (desktop)
+core: system-core git terminal-core tools  ## Install core only (no GUI)
+
 help: ## Display help
 	@grep -hE '^[a-zA-Z_0-9%-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-system: system-install system-configure ## Install and configure
-system-install: ## Install system packages
+# System packages
+system: system-install system-configure ## Install and configure system
+system-core: system-install-core system-configure-core ## Install and configure system (core)
+system-install: ## Install all system packages
 	@./scripts/system.sh install
-system-configure: ## Create directories, install fonts, etc.
+system-install-core: ## Install core system packages
+	@./scripts/system.sh install-core
+system-configure: ## Configure system (directories, fonts)
 	@./scripts/system.sh configure
+system-configure-core: ## Configure system (directories)
+	@./scripts/system.sh configure-core
 
+# Git
 git: ## Configure git
 	@./scripts/git.sh configure
 
-terminal: zsh ohmyzsh fzf terminator## Setup the terminal
+# Terminal
+terminal: terminal-core terminator ## Setup terminal
+terminal-core: zsh ohmyzsh fzf ## Setup terminal (core)
 zsh: ## Configure zsh
 	@./scripts/zsh.sh configure
 ohmyzsh: ohmyzsh-install ohmyzsh-configure ## Install and configure Oh My Zsh
@@ -29,12 +40,8 @@ fzf: ## Install FZF
 	@./scripts/fzf.sh install
 terminator: ## Configure Terminator
 	@./scripts/terminator.sh configure
-nautilus-terminal: nautilus-terminal-install nautilus-terminal-configure ## Install and configure nautilus-terminal
-nautilus-terminal-install: ## install nautilus-terminal
-	@./scripts/nautilus-terminal.sh install
-nautilus-terminal-configure: ## Configure nautilus-terminal
-	@./scripts/nautilus-terminal.sh configure
 
+# Tools
 tools: exa bat fd delta zoxide uv nvm claude-code
 exa: ## Install exa
 	@./scripts/exa.sh install
@@ -59,5 +66,12 @@ claude-code-install: ## Install Claude Code
 	@./scripts/claude-code.sh install
 claude-code-configure: ## Configure Claude Code
 	@./scripts/claude-code.sh configure
-claude-code-statusline: nvm ## Install ccstatusline addon (requires nvm)
+
+# Addons (optional, run manually)
+nautilus-terminal: nautilus-terminal-install nautilus-terminal-configure ## Addon: nautilus-terminal
+nautilus-terminal-install: ## Install nautilus-terminal
+	@./scripts/nautilus-terminal.sh install
+nautilus-terminal-configure: ## Configure nautilus-terminal
+	@./scripts/nautilus-terminal.sh configure
+claude-code-statusline: nvm ## Addon: ccstatusline (requires nvm)
 	@./scripts/claude-code.sh statusline

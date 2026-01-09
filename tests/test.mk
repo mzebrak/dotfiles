@@ -1,6 +1,6 @@
 test: build ## Run tests in Docker
 	docker rm -f dotfiles-test || true
-	docker run -t --name dotfiles-test dotfiles/test make testable verify
+	docker run -t --name dotfiles-test dotfiles/test bash -c "make core && ./tests/verify.sh core"
 
 test-local: ## Run verification on local system (no install)
 	@./tests/verify.sh all
