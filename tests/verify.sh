@@ -98,8 +98,8 @@ do_verify() {
 	fi
 }
 
-do_verify_optional() {
-	info "[verify] Checking optional tools (addons)..."
+do_verify_addons() {
+	info "[verify] Checking addons..."
 	echo
 
 	# ccstatusline addon (requires nvm/node)
@@ -119,8 +119,8 @@ main() {
 	"core")
 		do_verify_core
 		;;
-	"optional")
-		do_verify_optional
+	"addons")
+		do_verify_addons
 		;;
 	*)
 		error "$(basename "$0"): '$command' is not a valid command"
