@@ -55,10 +55,16 @@ do_verify_core() {
 	check_command "curl" "curl -V | head -1 | cut -d' ' -f1-2"
 	check_command "vim" "vim --version"
 	check_command "tmux" "tmux -V"
+	check_command "htop" "htop --version"
+	check_command "jq" "jq --version"
+	check_command "wget" "wget --version 2>&1 | head -1"
+	check_command "tldr" "tldr --version"
+	check_command "httpie" "http --version"
 	echo
 
 	# Installed tools
 	info "[verify] Checking installed tools versions..."
+	check_command "nvm" "jq -r .version ~/.nvm/package.json"
 	check_command "bat" "bat --version"
 	check_command "fd" "fdfind --version"
 	check_command "fzf" "fzf --version"
