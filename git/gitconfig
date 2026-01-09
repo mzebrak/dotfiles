@@ -3,6 +3,7 @@
 	su = submodule update --init --recursive
 	l = log --decorate --oneline --graph
 	ld = log --decorate --graph --oneline  --pretty=format:'%C(yellow)%h %C(cyan)%ad %Cblue%aN%C(auto)%d %Creset%s' --date relative
+	ldd = log --decorate --graph --oneline  --pretty=format:'%C(yellow)%h %C(cyan)%ad %Cblue%aN%C(auto)%d %Creset%s'
 	lda = log --all --decorate --graph --oneline  --pretty=format:'%C(yellow)%h %C(cyan)%ad %Cblue%aN%C(auto)%d %Creset%s' --date relative
 	la = log --all --decorate --oneline --graph
 	ds = diff --staged
@@ -20,7 +21,7 @@
 	cv = commit --verbose
 	ca = commit --amend --verbose
 	cf = commit --fixup
-	pf = push --force-with-lease --force-if-includes
+	pff = push --force-with-lease --force-if-includes
 	ap = add -p
 	cp = cherry-pick
 	cpa = cherry-pick --abort
