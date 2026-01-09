@@ -12,7 +12,7 @@ do_install() {
 	fi
 
 	info "[claude-code] Installation started..."
-	curl -fsSL https://claude.ai/install.sh | sh
+	curl -fsSL https://claude.ai/install.sh | bash
 	success "[claude-code] Installation done"
 }
 
