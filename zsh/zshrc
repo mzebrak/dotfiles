@@ -68,3 +68,47 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+dexe() {
+  if [ $# -eq 0 ]; then
+    ssh docker
+    return
+  fi
+
+  local project="$1"
+  shift
+
+  local remote_cmd=""
+  case "$project" in
+    clive)
+      remote_cmd="cd /workspace/clive && \
+        . venv/bin/activate && \
+        export COLORTERM=truecolor && \
+        "
+      ;;
+    wax)
+      remote_cmd="cd /workspace/wax/python && \
+        . venv/bin/activate && \
+        export COLORTERM=truecolor && \
+        "
+      ;;
+    schemas)
+      remote_cmd="cd /workspace/schemas && \
+        . venv/bin/activate && \
+        export COLORTERM=truecolor && \
+        "
+      ;;
+    *)
+      echo "Unknown project: $project"
+      return 1
+      ;;
+  esac
+
+  if [ $# -gt 0 ]; then
+    ssh docker-no-remote-command -t "$remote_cmd bash -c '\$@' -- $*"
+  else
+    ssh docker-no-remote-command -t "$remote_cmd bash -l"
+  fi
+}
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
