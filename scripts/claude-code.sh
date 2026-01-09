@@ -18,8 +18,7 @@ do_install() {
 
 do_configure() {
 	info "[claude-code] Configuration started..."
-	mkdir -p "${HOME}/.claude"
-	ln -fs "$(pwd)/claude-code/settings.json" "${HOME}/.claude/settings.json"
+	ln -fs "$(pwd)/claude-code/settings.json" "${HOME}/.claude.json"
 	success "[claude-code] Configuration done"
 }
 
