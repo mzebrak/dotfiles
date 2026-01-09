@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DISPLAY=0
@@ -22,7 +22,7 @@ USER test
 
 COPY --chown=test:test . /home/test/dotfiles
 
-ENV USER test
+ENV USER=test
 
 ENV PATH="/home/test/bin:${PATH}"
 
