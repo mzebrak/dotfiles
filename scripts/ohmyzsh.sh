@@ -45,7 +45,6 @@ do_configure() {
 	ln -fs "$(pwd)/zsh/p10k.zsh" "${ZSH_CUSTOM}/p10k.zsh"
 	ln -fs "$(pwd)/zsh/aliases.zsh" "${ZSH_CUSTOM}/aliases.zsh"
 	ln -fs "$(pwd)/zsh/zshrc" "${HOME}/.zshrc"
-	ln -fs "$(pwd)/zsh/zshenv" "${HOME}/.zshenv"
 	success "[ohmyzsh][configure] Creating symlinks done"
 }
 

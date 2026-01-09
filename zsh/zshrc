@@ -35,6 +35,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Apply sensisble zsh settings
 source ~/dotfiles/zsh/zshopt
+source ~/dotfiles/zsh/zshenv
 
 # Bind C+Space to accept the current suggestion
 bindkey '^ ' autosuggest-accept
