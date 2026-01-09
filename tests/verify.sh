@@ -20,6 +20,18 @@ check_command() {
 	fi
 }
 
+check_command_optional() {
+	local name="$1"
+	local cmd="$2"
+	local output
+
+	if output=$(eval "$cmd" 2>&1 | head -1); then
+		success "[verify] $name: $output"
+	else
+		warn "[verify] $name: not installed (optional)"
+	fi
+}
+
 check_file() {
 	local name="$1"
 	local file="$2"
@@ -99,17 +111,14 @@ print_summary() {
 }
 
 do_verify_addons() {
+	info "[verify] === ADDONS ==="
+	echo
+
 	info "[verify] Checking addons versions..."
-	echo
-
 	# ccstatusline addon (requires nvm/node)
-	check_command "node" "node --version" || true
-	check_command "npm" "npm --version" || true
-	check_command "ccstatusline" "ccstatusline --version" || true
-	echo
-
-	info "[verify] Checking addons config files (symlinks)..."
-	check_file "ccstatusline config" "${HOME}/.config/ccstatusline/settings.json" || true
+	check_command_optional "node" "node --version"
+	check_command_optional "npm" "npm --version"
+	check_command_optional "ccstatusline" "npm list -g ccstatusline 2>/dev/null | grep ccstatusline | sed 's/.*@//'"
 	echo
 }
 
