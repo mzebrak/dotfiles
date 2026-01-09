@@ -35,7 +35,7 @@ nautilus-terminal-install: ## install nautilus-terminal
 nautilus-terminal-configure: ## Configure nautilus-terminal
 	@./scripts/nautilus-terminal.sh configure
 
-tools: exa bat fd zoxide uv nvm claude-code
+tools: exa bat fd delta zoxide uv nvm claude-code
 exa: ## Install exa
 	@./scripts/exa.sh install
 bat: bat-install bat-configure ## Install and configure bat
@@ -43,6 +43,8 @@ bat-install: ## Install bat
 	@./scripts/bat.sh install
 bat-configure: ## Configure bat
 	@./scripts/bat.sh configure
+delta: ## Install delta (git diff viewer)
+	@./scripts/delta.sh install
 zoxide: ## Install zoxide
 	@./scripts/zoxide.sh install
 uv: ## Install uv
