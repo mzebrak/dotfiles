@@ -50,6 +50,8 @@ bat-install: ## Install bat
 	@./scripts/bat.sh install
 bat-configure: ## Configure bat
 	@./scripts/bat.sh configure
+fd: ## Configure fd
+	@./scripts/fd.sh configure
 delta: ## Install delta (git diff viewer)
 	@./scripts/delta.sh install
 zoxide: ## Install zoxide
