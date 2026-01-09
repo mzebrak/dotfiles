@@ -10,9 +10,10 @@ FAILED=0
 check_command() {
 	local name="$1"
 	local cmd="$2"
+	local output
 
-	if eval "$cmd" &>/dev/null; then
-		success "[verify] $name: OK"
+	if output=$(eval "$cmd" 2>&1 | head -1); then
+		success "[verify] $name: $output"
 	else
 		error "[verify] $name: FAILED"
 		FAILED=$((FAILED + 1))
@@ -36,28 +37,28 @@ do_verify_core() {
 	echo
 
 	# System tools
-	info "[verify] Checking system tools..."
+	info "[verify] Checking system tools versions..."
 	check_command "zsh" "zsh --version"
 	check_command "git" "git --version"
-	check_command "curl" "curl --version"
+	check_command "curl" "curl -V | head -1 | cut -d' ' -f1-2"
 	check_command "vim" "vim --version"
 	check_command "tmux" "tmux -V"
 	echo
 
 	# Installed tools
-	info "[verify] Checking installed tools..."
+	info "[verify] Checking installed tools versions..."
 	check_command "bat" "bat --version"
 	check_command "fd" "fdfind --version"
 	check_command "fzf" "fzf --version"
 	check_command "zoxide" "zoxide --version"
 	check_command "delta" "delta --version"
-	check_command "exa" "exa --version"
+	check_command "exa" "exa --version | head -2 | tail -1"
 	check_command "uv" "uv --version"
 	check_command "claude" "claude --version"
 	echo
 
 	# Config files (core)
-	info "[verify] Checking config files..."
+	info "[verify] Checking config files (symlinks)..."
 	check_file "gitconfig" "${HOME}/.gitconfig"
 	check_file "zshrc" "${HOME}/.zshrc"
 	check_file "bat config" "${HOME}/.config/bat/config"
@@ -65,29 +66,31 @@ do_verify_core() {
 	echo
 
 	# Oh-My-Zsh
-	info "[verify] Checking Oh-My-Zsh..."
+	info "[verify] Checking Oh-My-Zsh installation..."
 	check_file "oh-my-zsh" "${HOME}/.oh-my-zsh/oh-my-zsh.sh"
 	check_file "powerlevel10k" "${HOME}/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme"
 	echo
+}
 
-	# Summary
-	if [[ $FAILED -eq 0 ]]; then
-		success "[verify] All checks passed!"
-	else
-		error "[verify] $FAILED check(s) failed!"
-		exit 1
-	fi
+do_verify_desktop() {
+	info "[verify] === DESKTOP ==="
+	echo
+
+	# Desktop config files
+	info "[verify] Checking desktop config files (symlinks)..."
+	check_file "terminator config" "${HOME}/.config/terminator/config"
+	echo
 }
 
 do_verify() {
-	do_verify_core
-
-	# Desktop config files
-	info "[verify] Checking desktop config files..."
-	check_file "terminator config" "${HOME}/.config/terminator/config"
+	info "[verify] === CORE ==="
 	echo
+	do_verify_core
+	do_verify_desktop
+	print_summary
+}
 
-	# Summary
+print_summary() {
 	if [[ $FAILED -eq 0 ]]; then
 		success "[verify] All checks passed!"
 	else
@@ -97,13 +100,16 @@ do_verify() {
 }
 
 do_verify_addons() {
-	info "[verify] Checking addons..."
+	info "[verify] Checking addons versions..."
 	echo
 
 	# ccstatusline addon (requires nvm/node)
 	check_command "node" "node --version" || true
 	check_command "npm" "npm --version" || true
 	check_command "ccstatusline" "ccstatusline --version" || true
+	echo
+
+	info "[verify] Checking addons config files (symlinks)..."
 	check_file "ccstatusline config" "${HOME}/.config/ccstatusline/settings.json" || true
 	echo
 }
