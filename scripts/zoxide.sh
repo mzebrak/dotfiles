@@ -11,7 +11,7 @@ do_install() {
 		return
 	fi
 
-	info "[zoxide] Installation stared..."
+	info "[zoxide] Installation started..."
 	curl -sS https://webinstall.dev/zoxide | bash
 	success "[zoxide] Installation done"
 }

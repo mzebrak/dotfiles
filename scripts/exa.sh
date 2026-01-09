@@ -13,7 +13,7 @@ do_install() {
 		return
 	fi
 
-	info "[exa] Installation of ${EXA_VERSION} stared..."
+	info "[exa] Installation of ${EXA_VERSION} started..."
 	local exa=/tmp/exa.zip
 	download "https://github.com/ogham/exa/releases/latest/download/exa-linux-x86_64-v${EXA_VERSION}.zip" "${exa}"
 	sudo unzip -q "${exa}" bin/exa -d /usr/local
