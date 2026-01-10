@@ -6,7 +6,7 @@ set -euo pipefail
 source "$(pwd)/scripts/util.sh"
 
 do_install() {
-	if zoxide --version; then
+	if zoxide --version &>/dev/null; then
 		info "[zoxide] Already $(zoxide --version) installed"
 		return
 	fi

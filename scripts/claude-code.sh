@@ -6,7 +6,7 @@ set -euo pipefail
 source "$(pwd)/scripts/util.sh"
 
 do_install() {
-	if claude --version; then
+	if claude --version &>/dev/null; then
 		info "[claude-code] Already $(claude --version) installed"
 		return
 	fi

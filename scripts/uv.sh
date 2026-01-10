@@ -6,7 +6,7 @@ set -euo pipefail
 source "$(pwd)/scripts/util.sh"
 
 do_install() {
-	if uv --version; then
+	if uv --version &>/dev/null; then
 		info "[uv] Already $(uv --version) installed"
 		return
 	fi
