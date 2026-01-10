@@ -5,6 +5,8 @@ set -euo pipefail
 # shellcheck source=../scripts/util.sh
 source "$(pwd)/scripts/util.sh"
 
+TPM_VERSION="${TPM_VERSION:=v3.1.0}"
+
 do_install() {
 	if tmux -V &>/dev/null; then
 		info "[tmux] Already $(tmux -V) installed"
@@ -20,8 +22,8 @@ do_configure() {
 	info "[tmux] Configuration started..."
 
 	if [[ ! -d "${HOME}/.tmux/plugins/tpm" ]]; then
-		info "[tmux] Downloading tpm plugin manager..."
-		git clone --quiet https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
+		info "[tmux] Downloading tpm ${TPM_VERSION}..."
+		git clone --quiet --depth 1 --branch "${TPM_VERSION}" https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
 	fi
 
 	ln -fs "$(pwd)/tmux/tmux.conf" "${HOME}/.tmux.conf"
