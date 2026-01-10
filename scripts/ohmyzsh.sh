@@ -5,6 +5,7 @@ set -euo pipefail
 # shellcheck source=../scripts/util.sh
 source "$(pwd)/scripts/util.sh"
 
+OHMYZSH_VERSION="${OHMYZSH_VERSION:=871d4b9816e6a8bdf809149c79f468d0fcb888db}"
 ZSH="${HOME}/.oh-my-zsh"
 ZSH_CUSTOM="${ZSH}/custom"
 
@@ -14,9 +15,9 @@ do_install() {
 		return
 	fi
 
-	info "[ohmyzsh] Installing started..."
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
-	success "[ohmyzsh] Installing done"
+	info "[ohmyzsh] Installation of ${OHMYZSH_VERSION:0:7} started..."
+	sh -c "$(curl -fsSL "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/${OHMYZSH_VERSION}/tools/install.sh")" "" --unattended
+	success "[ohmyzsh] Installation done"
 }
 
 do_configure() {
