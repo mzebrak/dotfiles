@@ -5,26 +5,19 @@ set -euo pipefail
 # shellcheck source=../scripts/util.sh
 source "$(pwd)/scripts/util.sh"
 
+FZF_VERSION="${FZF_VERSION:=0.67.0}"
 FZF_DIR="${HOME}/.fzf"
 
 do_install() {
-	if is_installed fzf; then
-		info "[fzf] Already installed $(fzf --version). Updating..."
-		(
-			cd "${FZF_DIR}"
-			git pull --quiet
-			./install --bin
-		)
-		success "[fzf] Updating done"
+	if fzf --version &>/dev/null; then
+		info "[fzf] Already $(fzf --version | cut -d' ' -f1) installed"
 		return
 	fi
 
-	info "[fzf] Installing started..."
-	if [[ ! -d ${FZF_DIR} ]]; then
-		git clone --quiet --depth 1 https://github.com/junegunn/fzf.git "${FZF_DIR}"
-		"${FZF_DIR}/install" --no-bash --no-fish --key-bindings --completion --no-update-rc
-	fi
-	success "[fzf] Installing done"
+	info "[fzf] Installation of ${FZF_VERSION} started..."
+	git clone --quiet --depth 1 --branch "v${FZF_VERSION}" https://github.com/junegunn/fzf.git "${FZF_DIR}"
+	"${FZF_DIR}/install" --no-bash --no-fish --key-bindings --completion --no-update-rc
+	success "[fzf] Installation done"
 }
 
 main() {
