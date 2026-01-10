@@ -61,8 +61,8 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 # load keychain (SSH agent management) - only if no agent is available (preserves ForwardAgent)
 ssh-add -l &>/dev/null; [[ $? -eq 2 ]] && eval "$(keychain --eval --quiet)"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit ~/.oh-my-zsh/custom/p10k.zsh.
+[[ ! -f ~/.oh-my-zsh/custom/p10k.zsh ]] || source ~/.oh-my-zsh/custom/p10k.zsh
 
 autoload -Uz compinit
 zstyle ':completion:*' menu select
