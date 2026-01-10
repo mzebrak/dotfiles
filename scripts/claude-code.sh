@@ -5,14 +5,16 @@ set -euo pipefail
 # shellcheck source=../scripts/util.sh
 source "$(pwd)/scripts/util.sh"
 
+CLAUDE_VERSION="${CLAUDE_VERSION:=2.1.3}"
+
 do_install() {
 	if claude --version &>/dev/null; then
 		info "[claude-code] Already $(claude --version) installed"
 		return
 	fi
 
-	info "[claude-code] Installation started..."
-	curl -fsSL https://claude.ai/install.sh | bash
+	info "[claude-code] Installation of ${CLAUDE_VERSION} started..."
+	curl -fsSL https://claude.ai/install.sh | bash -s "${CLAUDE_VERSION}"
 	success "[claude-code] Installation done"
 }
 
