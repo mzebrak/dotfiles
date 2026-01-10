@@ -56,7 +56,7 @@ terminator-configure: ## Configure Terminator
 	@./scripts/terminator.sh configure
 
 # Tools
-tools: exa bat fd delta zoxide uv nvm claude-code
+tools: exa bat fd delta zoxide uv poetry nvm claude-code
 exa: ## Install exa
 	@./scripts/exa.sh install
 bat: bat-install bat-configure ## Install and configure bat
@@ -75,6 +75,8 @@ zoxide: ## Install zoxide
 	@./scripts/zoxide.sh install
 uv: ## Install uv
 	@./scripts/uv.sh install
+poetry: ## Install poetry
+	@./scripts/poetry.sh install
 nvm: nvm-install nvm-configure ## Install nvm and Node.js LTS
 nvm-install: ## Install nvm
 	@./scripts/nvm.sh install

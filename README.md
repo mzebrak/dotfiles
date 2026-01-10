@@ -95,6 +95,7 @@ sudo add-apt-repository ppa:git-core/ppa -y
 | [exa](https://github.com/ogham/exa) | Modern `ls` replacement |
 | [fd](https://github.com/sharkdp/fd) | Modern `find` replacement |
 | [nvm](https://github.com/nvm-sh/nvm) | Node.js version manager |
+| [poetry](https://python-poetry.org/) | Python dependency manager |
 | [uv](https://github.com/astral-sh/uv) | Fast Python package manager |
 | [zoxide](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` command |
 

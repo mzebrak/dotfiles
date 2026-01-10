@@ -71,6 +71,7 @@ do_verify_core() {
 	check_command "zoxide" "zoxide --version"
 	check_command "delta" "delta --version"
 	check_command "exa" "exa --version | head -2 | tail -1"
+	check_command "poetry" "poetry --version"
 	check_command "uv" "uv --version"
 	check_command "claude" "claude --version"
 	echo
