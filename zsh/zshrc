@@ -58,8 +58,8 @@ eval "$(zoxide init zsh)"
 export PATH="$HOME/.local/share/fnm:$PATH"
 eval "$(fnm env --use-on-cd --shell zsh)"
 
-# load keychain (SSH agent management)
-command -v keychain &>/dev/null && eval "$(keychain --eval --quiet)"
+# load keychain (SSH agent management) - only if no agent is available (preserves ForwardAgent)
+ssh-add -l &>/dev/null; [[ $? -eq 2 ]] && eval "$(keychain --eval --quiet)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
