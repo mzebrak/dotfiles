@@ -8,8 +8,8 @@ source "$(pwd)/scripts/util.sh"
 BAT_VERSION="${BAT_VERSION:=0.21.0}"
 
 do_install() {
-	if [[ "$(bat --version 2>/dev/null)" == *"${BAT_VERSION}"* ]]; then
-		info "[bat] ${BAT_VERSION} already installed"
+	if bat --version &>/dev/null; then
+		info "[bat] Already $(bat --version | head -1) installed"
 		return
 	fi
 

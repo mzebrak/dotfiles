@@ -8,8 +8,8 @@ source "$(pwd)/scripts/util.sh"
 EXA_VERSION="${EXA_VERSION:=0.10.1}"
 
 do_install() {
-	if [[ "$(exa --version 2>/dev/null)" == *"${EXA_VERSION}"* ]]; then
-		info "[exa] ${EXA_VERSION} already installed"
+	if exa --version &>/dev/null; then
+		info "[exa] Already $(exa --version | head -1) installed"
 		return
 	fi
 
