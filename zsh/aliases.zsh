@@ -18,6 +18,11 @@ alias fd="fdfind"
 alias listen="lsof -i -P -n | grep LISTEN"
 alias poelock="poetry lock --no-update"
 
+# Claude Code aliases
+alias code="claude --dangerously-skip-permissions"
+alias ccode="claude --dangerously-skip-permissions -c"
+alias crode="claude --dangerously-skip-permissions -r"
+
 # Docker container shortcuts
 alias cexe="dexe clive"
 alias wexe="dexe wax"
