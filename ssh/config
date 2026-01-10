@@ -6,8 +6,10 @@ Host docker
     HostName localhost
     Port 2023
     User dmzebrak
+    ForwardAgent yes
 
 Host work-docker
     HostName 192.168.6.63
     Port 2023
     User dmzebrak
+    ForwardAgent yes

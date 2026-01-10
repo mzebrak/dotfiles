@@ -18,6 +18,7 @@ CORE_PACKAGES=(
 	htop
 	httpie
 	jq
+	keychain
 	ncurses-term
 	neovim
 	python3

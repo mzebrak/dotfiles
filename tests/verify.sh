@@ -60,6 +60,7 @@ do_verify_core() {
 	check_command "wget" "wget --version 2>&1 | head -1"
 	check_command "tldr" "tldr --version"
 	check_command "httpie" "http --version"
+	check_command "keychain" "keychain --version 2>&1 | grep -o 'keychain [0-9.]*' || which keychain"
 	echo
 
 	# Installed tools
