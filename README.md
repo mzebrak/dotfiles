@@ -105,7 +105,6 @@ Optional, run manually.
 
 | Addon | Command |
 |-------|---------|
-| [nautilus-terminal](https://github.com/flozz/nautilus-terminal) | `make nautilus-terminal` |
 | claude-code-statusline | `make claude-code-statusline` |
 
 ---

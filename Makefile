@@ -85,11 +85,6 @@ claude-code: ## Install Claude Code
 	@./scripts/claude-code.sh install
 
 # Addons (optional, run manually)
-nautilus-terminal: nautilus-terminal-install nautilus-terminal-configure ## Addon: nautilus-terminal
-nautilus-terminal-install: ## Install nautilus-terminal
-	@./scripts/nautilus-terminal.sh install
-nautilus-terminal-configure: ## Configure nautilus-terminal
-	@./scripts/nautilus-terminal.sh configure
 claude-code-statusline: node ## Addon: ccstatusline (requires node)
 	@./scripts/claude-code.sh statusline
 
