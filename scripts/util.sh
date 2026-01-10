@@ -5,6 +5,9 @@ set -euo pipefail
 # shellcheck disable=2034
 XDG_CONFIG_HOME="${HOME}/.config"
 
+# Add fnm to PATH (for scripts that need fnm/node/npm)
+export PATH="${HOME}/.local/share/fnm:${PATH}"
+
 info() {
 	printf "\033[36m%s\033[0m\n" "$*" >&2
 }

@@ -94,7 +94,8 @@ sudo add-apt-repository ppa:git-core/ppa -y
 | [delta](https://github.com/dandavison/delta) | Git diff viewer |
 | [exa](https://github.com/ogham/exa) | Modern `ls` replacement |
 | [fd](https://github.com/sharkdp/fd) | Modern `find` replacement |
-| [nvm](https://github.com/nvm-sh/nvm) | Node.js version manager |
+| [fnm](https://github.com/Schniz/fnm) | Fast Node Manager |
+| [node](https://nodejs.org/) | Node.js (installed via fnm) |
 | [poetry](https://python-poetry.org/) | Python dependency manager |
 | [uv](https://github.com/astral-sh/uv) | Fast Python package manager |
 | [zoxide](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` command |

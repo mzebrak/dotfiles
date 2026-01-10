@@ -56,7 +56,7 @@ terminator-configure: ## Configure Terminator
 	@./scripts/terminator.sh configure
 
 # Tools
-tools: exa bat fd delta zoxide uv poetry nvm claude-code
+tools: exa bat fd delta zoxide uv poetry fnm node claude-code
 exa: ## Install exa
 	@./scripts/exa.sh install
 bat: bat-install bat-configure ## Install and configure bat
@@ -77,11 +77,10 @@ uv: ## Install uv
 	@./scripts/uv.sh install
 poetry: ## Install poetry
 	@./scripts/poetry.sh install
-nvm: nvm-install nvm-configure ## Install nvm and Node.js LTS
-nvm-install: ## Install nvm
-	@./scripts/nvm.sh install
-nvm-configure: ## Install Node.js LTS
-	@./scripts/nvm.sh configure
+fnm: ## Install fnm (Fast Node Manager)
+	@./scripts/fnm.sh install
+node: fnm ## Install Node.js (requires fnm)
+	@./scripts/node.sh install
 claude-code: ## Install Claude Code
 	@./scripts/claude-code.sh install
 
@@ -91,7 +90,7 @@ nautilus-terminal-install: ## Install nautilus-terminal
 	@./scripts/nautilus-terminal.sh install
 nautilus-terminal-configure: ## Configure nautilus-terminal
 	@./scripts/nautilus-terminal.sh configure
-claude-code-statusline: nvm ## Addon: ccstatusline (requires nvm)
+claude-code-statusline: node ## Addon: ccstatusline (requires node)
 	@./scripts/claude-code.sh statusline
 
 # Docker

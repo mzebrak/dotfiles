@@ -21,9 +21,12 @@ do_install() {
 do_statusline() {
 	info "[claude-code] Statusline setup started..."
 
+	# Source fnm to get node/npm in PATH
+	eval "$(fnm env --shell bash)"
+
 	# Check if npm is available
 	if ! command -v npm &>/dev/null; then
-		error "[claude-code] npm not found, install nvm/node first"
+		error "[claude-code] npm not found, install node first"
 		return 1
 	fi
 

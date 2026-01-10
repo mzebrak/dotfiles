@@ -64,7 +64,8 @@ do_verify_core() {
 
 	# Installed tools
 	info "[verify] Checking installed tools versions..."
-	check_command "nvm" "jq -r .version ~/.nvm/package.json"
+	check_command "fnm" "fnm --version"
+	check_command "node" "node --version"
 	check_command "bat" "bat --version"
 	check_command "fd" "fdfind --version"
 	check_command "fzf" "fzf --version"
@@ -122,7 +123,7 @@ do_verify_addons() {
 	echo
 
 	info "[verify] Checking addons versions..."
-	# ccstatusline addon (requires nvm/node)
+	# ccstatusline addon (requires fnm/node)
 	check_command_optional "node" "node --version"
 	check_command_optional "npm" "npm --version"
 	check_command_optional "ccstatusline" "npm list -g ccstatusline 2>/dev/null | grep ccstatusline | sed 's/.*@//'"
