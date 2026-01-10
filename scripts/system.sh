@@ -71,6 +71,12 @@ do_configure_core() {
 	info "[system][configure][directories] User binaries directory"
 	install -d -m 0755 -o "${USER}" -g "${USER}" "$HOME/bin"
 	success "[system][configure] Creating directories done"
+
+	info "[system][configure] Linking SSH config..."
+	mkdir -p "${HOME}/.ssh"
+	chmod 700 "${HOME}/.ssh"
+	ln -fs "$(pwd)/ssh/config" "${HOME}/.ssh/config"
+	success "[system][configure] SSH config linked"
 }
 
 do_configure_desktop() {

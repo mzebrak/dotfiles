@@ -1,0 +1,8 @@
+Host work
+    HostName 192.168.6.63
+    User dev
+
+Host docker
+    HostName localhost
+    Port 2023
+    User dmzebrak
