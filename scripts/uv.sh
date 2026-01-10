@@ -14,7 +14,7 @@ do_install() {
 	fi
 
 	info "[uv] Installation of ${UV_VERSION} started..."
-	curl -LsSf "https://astral.sh/uv/${UV_VERSION}/install.sh" | sh
+	curl -LsSf "https://astral.sh/uv/${UV_VERSION}/install.sh" | env UV_NO_MODIFY_PATH=1 sh
 	success "[uv] Installation done"
 }
 
