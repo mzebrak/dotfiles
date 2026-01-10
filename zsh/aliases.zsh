@@ -12,6 +12,7 @@ alias tree='exa --icons -FT'
 alias e="xdg-open ."
 alias c="clear"
 alias cat="bat"
+alias catt="bat --plain"
 alias zz="z -"
 alias fd="fdfind"
 alias listen="lsof -i -P -n | grep LISTEN"
