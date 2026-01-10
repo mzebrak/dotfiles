@@ -5,6 +5,7 @@ set -euo pipefail
 # shellcheck source=../scripts/util.sh
 source "$(pwd)/scripts/util.sh"
 
+NVM_VERSION="${NVM_VERSION:=0.40.1}"
 NVM_DIR="${HOME}/.nvm"
 
 do_install() {
@@ -13,8 +14,8 @@ do_install() {
 		return
 	fi
 
-	info "[nvm] Installation started..."
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+	info "[nvm] Installation of ${NVM_VERSION} started..."
+	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh" | bash
 	success "[nvm] Installation done"
 }
 
